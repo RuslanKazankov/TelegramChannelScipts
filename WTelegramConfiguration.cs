@@ -12,13 +12,15 @@ namespace TelegramChannelScipts
         public string? ApiHash { get; set; }
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
+        public string? PhoneNumber { get; set; }
         public string Config(string what)
         {
             switch (what)
             {
+                case "server_address": return "2>149.154.167.40:443";
                 case "api_id": return ApiId;
                 case "api_hash": return ApiHash;
-                case "phone_number": Console.Write("Phone number: "); return Console.ReadLine();
+                case "phone_number": return PhoneNumber;
                 case "verification_code": Console.Write("Code: "); return Console.ReadLine();
                 case "first_name": return FirstName;      // if sign-up is required
                 case "last_name": return LastName;        // if sign-up is required
