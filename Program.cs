@@ -1,10 +1,11 @@
 ﻿using Microsoft.Extensions.Configuration;
+using WTelegram;
 
 namespace TelegramChannelScipts
 {
     public class Program
     {
-        private static void Main(string[] args)
+        private static async Task Main(string[] args)
         {
             Console.WriteLine("Hello, Braza!");
 
@@ -18,7 +19,9 @@ namespace TelegramChannelScipts
 
             WTelegram.Client client = new WTelegram.Client(telegramConfiguration.Config);
 
-            Console.WriteLine("Welcome to Telegram, " + client.User.username + "!");
+            var a = await client.LoginUserIfNeeded();
+
+            Console.WriteLine("Welcome to Telegram, " + client.User.ID + "!");
         }
     }
 }
